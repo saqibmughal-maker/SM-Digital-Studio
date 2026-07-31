@@ -11070,6 +11070,17 @@ header.masthead .masthead-heading {
   opacity: 0.3;
 }
 
+#portfolio .portfolio-item .portfolio-link {
+  overflow: hidden;
+}
+#portfolio .portfolio-item .portfolio-link img {
+  width: 100%;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+
 .timeline {
   position: relative;
   padding: 0;

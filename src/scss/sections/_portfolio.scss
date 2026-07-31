@@ -106,3 +106,18 @@
         }
     }
 }
+
+#portfolio {
+    .portfolio-item {
+        .portfolio-link {
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 300px;
+                object-fit: cover;
+                display: block;
+            }
+        }
+    }
+}
