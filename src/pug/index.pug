@@ -256,13 +256,19 @@ html(lang='en')
                 // https://startbootstrap.com/solution/contact-forms
                 // to get an API token!
 
-                form#contactForm(data-sb-form-api-token='API_TOKEN')
-                    .row.align-items-stretch.mb-5
+                form#contactForm(name='contact' method='POST' data-netlify='true' netlify-honeypot='bot-field')
+                input(type='hidden' name='form-name' value='contact')
+                p.hidden
+                  label
+                      | Don't fill this out:
+                      input(name='bot-field')
+                .row.align-items-stretch.mb-5
                         .col-md-6
                             .form-group
 
                                 // Name input
                                 input#name.form-control(
+                                    name='name',
                                     type='text',
                                     placeholder='Full Name',
                                     data-sb-validations='required'
@@ -275,6 +281,7 @@ html(lang='en')
                                 // Email address input
                                 input#email.form-control(
                                     type='email',
+                                    name='email',
                                     placeholder='Business Email',
                                     data-sb-validations='required,email'
                                 )
@@ -288,6 +295,7 @@ html(lang='en')
                                 // Phone number input
                                 input#phone.form-control(
                                     type='tel',
+                                    name='phone',
                                     placeholder='WhatsApp Number',
                                     data-sb-validations='required'
                                 )
@@ -299,35 +307,35 @@ html(lang='en')
 
                                 // Message input
                                 textarea#message.form-control(
+                                    name='message',
                                     placeholder='Tell us about your project...',
                                     data-sb-validations='required'
                                 )
-                                .invalid-feedback(data-sb-feedback='message:required')
+                        .invalid-feedback(data-sb-feedback='message:required')
                                     | A message is required.
 
-                    // Submit success message
-                    //
-                    // This is what your users will see when the form
-                    // has successfully submitted
+                // Submit success message
+                //
+                // This is what your users will see when the form
+                // has successfully submitted
 
-                    #submitSuccessMessage.d-none
-                        .text-center.text-white.mb-3
-                            .fw-bolder Form submission successful!
-                            | To activate this form, sign up at
-                            br
-                            a(href='https://startbootstrap.com/solution/contact-forms') https://startbootstrap.com/solution/contact-forms
+                #submitSuccessMessage.d-none
+                .text-center.text-white.mb-3
+                i.fw-bolder Thank you!
+                br
+                | Your inquiry has been sent successfully. We'll contact you soon.
+                // Submit error message
+                //
+                // This is what your users will see when there is
+                // an error submitting the form
 
-                    // Submit error message
-                    //
-                    // This is what your users will see when there is
-                    // an error submitting the form
+                #submitErrorMessage.d-none
+                    .text-center.text-danger.mb-3
+                        | Something went wrong. Please try again later.
 
-                    #submitErrorMessage.d-none
-                        .text-center.text-danger.mb-3 Error sending message!
-
-                    // Submit Button
-                    .text-center
-                        button#submitButton.btn.btn-primary.btn-xl.text-uppercase.disabled(type='submit') SEND INQUIRY
+                // Submit Button
+                .text-center
+                    button#submitButton.btn.btn-primary.btn-xl.text-uppercase(type='submit') SEND INQUIRY
 
         // Footer
         footer.footer.py-4
